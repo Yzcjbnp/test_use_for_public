@@ -1,18 +1,19 @@
 # Use python to create templates for automatic testing at [OrangeHRM](https://opensource-demo.orangehrmlive.com/web/index.php/auth/login)
 
 ### Test Case Name
-Search Employee exist in Full-Time Permanent employee list.
+Search for employees that exist in the employee list.
 
 ### Expected Result
-Employee status is displayed as full-time employee, in the sample code, we use "manda akhil user" as the search criteria.
+Employees can be added and can be searched on the PIM page.
 
 ### Unexpected result
-Employee cannot be found or the status is displayed as part-time employee.
+The employee cannot be found or the employee cannot be added.
 
 ### Test Steps
-1. Login OrangeHRM system(https://opensource-demo.orangehrmlive.com/web/index.php/auth/login). 
-2. Go to PIM page, fillout "manda akhil user" and click search button.
-3. Check result Employment Status as "Full-Time Permanent".
+1. Log in to the OrangeHRM system (https://opensource-demo.orangehrmlive.com/web/index.php/auth/login).
+2. Enter the PIM page, click the add button, and enter an employee's information including First name, Last name and a six-digit random ID.
+3. Return to the PIM page, enter the employee’s name, and click Search
+4. The check result is that the employee exists.
 
 ### How to run
 ```
