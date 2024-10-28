@@ -10,7 +10,7 @@ from selenium.common.exceptions import TimeoutException
 class TestOrangeHRM:
     @pytest.fixture(scope="class")
     def setup(self):
-        # Setup Chrome WebDriver
+        # Setup chrome webDriver
         self.driver = webdriver.Chrome()
         self.driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login")
         yield self.driver
@@ -22,12 +22,12 @@ class TestOrangeHRM:
         username_input = WebDriverWait(driver, 10).until(
             EC.visibility_of_element_located((By.NAME, "username"))
         )
-        password_input = driver.find_element(By.NAME, "password")
-
+        password_input = WebDriverWait(driver, 10).until(
+            EC.visibility_of_element_located((By.NAME, "password"))
         username_input.send_keys("Admin")
         password_input.send_keys("admin123")
         password_input.send_keys(Keys.RETURN)
-
+            
         # Verify login
         WebDriverWait(driver, 10).until(
             EC.title_contains("OrangeHRM")
@@ -42,7 +42,7 @@ class TestOrangeHRM:
         )
         pim_menu.click()
 
-        # Found Employee Name and keyin employee_name
+        # Found employee name field and keyin employee_name
         employee_name_input = WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.XPATH, "//input[@placeholder='Type for hints...']"))
         )
